@@ -3,36 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>Holostacker wau</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-    <script src="pixi/pixi.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
 <body>
-    <script type="text/javascript">
-        let type = "WebGL"
-        if(!PIXI.utils.isWebGLSupported()){
-            type = "canvas"
-        }
-
-        PIXI.utils.sayHello(type)
-
-        // Create pixi application
-        let app = new PIXI.Application({
-            width: 1280,
-            height: 720,
-            antialias: true,
-            transparent: false,
-            resolution: 1,
-            forceCanvas: false
-        });
-        
-        app.renderer.view.style.position = "absolute";
-        app.renderer.view.style.display = "block";
-        app.renderer.autoResize = true;
-        app.renderer.resize(window.innerWidth, window.innerHeight);
-
-        // Add generated canvas to HTML doc
-        document.body.appendChild(app.view);
-
-    </script>
+    <script src="pixi.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
