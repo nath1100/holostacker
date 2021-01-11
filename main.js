@@ -20,6 +20,13 @@ app.renderer.view.style.display = "block";
 app.renderer.autoResize = true;
 app.renderer.resize(window.innerWidth, window.innerHeight);
 
+// Automatically resize canvas when window is resized
+window.addEventListener("resize", resizeWindow);
+
+function resizeWindow() {
+    app.renderer.resize(window.innerWidth, window.innerHeight);
+}
+
 // Add generated canvas to HTML doc
 document.body.appendChild(app.view);
 
@@ -38,7 +45,10 @@ app.loader
         title.interactive = true;
         title.buttonMode = true;
 
-        title.on("pointerdown", titleOnClick);
+        title
+            .on("pointerdown", titleOnClick)
+            .on("mouseover", titleOnFocus)
+            .on("mouseout", titleOnUnfocus);
 
         app.stage.addChild(title);
 
@@ -47,15 +57,34 @@ app.loader
             title.rotation += 0.01 * delta;
         });
 
+        // Title image scales and disappears when clicked
         function titleOnClick() {
+            // Remove interactivity
+            title.interactive = false;
+
+            // Scaling ticker
             app.ticker.add((delta) => {
                 title.scale.x += 0.02;
                 title.scale.y += 0.02;
-                title.alpha -= 0.01;
+                title.alpha -= 0.02;
                 if (title.alpha <= -0.5) {
                     title.visible = false;
                     app.ticker.remove();
                 }
             });
         }
+
+        // Title scales up when pointer hovers over
+        function titleOnFocus() {
+            title.scale.set(1.25);
+        }
+        function titleOnUnfocus() {
+            title.scale.set(1);
+        }
+
+
+    })
+    // Load menu screen
+    .load((loader, resources) => {
+        
     });
