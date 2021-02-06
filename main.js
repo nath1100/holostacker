@@ -1,3 +1,5 @@
+import Game from "./game.js";
+
 let type = "WebGL";
 if(!PIXI.utils.isWebGLSupported()){
     type = "canvas"

@@ -1,10 +1,13 @@
-import Queue from "queue.js";
+import Queue from "./queue.js";
+import Piece from "./piece.js";
+import {getRandIntInclusive} from "./tools.js";
 
-class Game {
+export default class Game {
     constructor(width, height, previews) {
         this.width = width;
         this.height = height;
         this.queue = new Queue(previews);
+        this.piece = new Piece();
         // Generate board of size width * height with initial values of 0.
         this.board = Array.from(Array(height), () => new Array(width).fill(0))
         // Access with this.board[y][x], positive x and y
@@ -77,11 +80,4 @@ class Game {
         }
     }
 
-}
-
-function getRandIntInclusive(min, max) {
-    // ceil and floor min and max
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
 }
