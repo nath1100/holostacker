@@ -1,0 +1,22 @@
+{
+    "controls": {
+        "gameplay": {
+            "move_left": "ArrowLeft",
+            "move_right": "ArrowRight",
+            "rotate_cw": "X",
+            "rotate_ccw": "Z",
+            "hold": "Shift",
+            "hard_drop": "Space",
+            "soft_drop": "ArrowDown"
+        },
+        "menu": {
+            "pause": "P",
+            "retry": "R"
+        }
+    },
+    "handling": {
+        "DAS": 133,
+        "ARR": 10,
+        "soft_drop_speed": 1
+    }
+}

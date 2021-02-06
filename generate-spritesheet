@@ -1,0 +1,1 @@
+spritesheet-js -f pixi.js -n sheet -p img/sheets --padding 2 img/raw/*.png
